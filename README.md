@@ -13,7 +13,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd my-project
+  cd MovieMarvel
 ```
 
 Install dependencies
@@ -25,7 +25,12 @@ Install dependencies
 Start the server
 
 ```bash
-  npm run start
+  npm run
+```
+
+Run app.js
+```bash
+  node app.js
 ```
 
 
