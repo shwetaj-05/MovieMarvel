@@ -1,0 +1,57 @@
+body{
+    background-color: black;
+    color: white;
+}
+.navbar{
+    background-color: rgb(255, 0, 0);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+.nav-link{
+    color: white;
+}
+.nav-item{
+    margin-left: 1rem;
+}
+.login{
+    display: flex;
+    background-color: #de9f21;
+    border: 1px solid rgb(255, 253, 250);
+}
+.login:hover{
+    background-color: #f7d22e;
+}
+.search{
+    margin-left: 2rem;
+    background-color: rgb(255, 255, 255);
+}
+.searchbtn{
+    border:1px white solid;
+    background-color: #f31212;
+}
+.searchbtn:hover{
+    border:1px rgb(206, 0, 0) solid;
+    background-color: #f22828;
+}
+.explore{
+    border: none;
+    background-color: rgb(255, 0, 0);
+}
+.explore:hover{
+    background-color: #cb1b1b;
+    border: none;
+}
+.explore:focus{
+    background: #ff0c0c;
+}
+.homeimages{
+    width: 60%;
+    display: flex;
+    margin: auto;
+    margin-top: 3rem;
+    box-shadow: 0 0 15px 5px rgb(195, 232, 238);
+}
+.homeimg{
+    height: 25rem;
+    opacity: 0.7;
+}

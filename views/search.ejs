@@ -1,0 +1,31 @@
+<%- include('partials/mainnav.ejs') %>
+<link rel="stylesheet" href="styles/serdata.css">
+<body>
+    <img src="<%= moviedata.Poster %>" alt="<%= moviedata.Title %> poster" class="poster">
+    <table>
+        <tr>
+            <th>Title</th>
+            <td><%= moviedata.Title %></td>
+        </tr>
+        <tr>
+            <th>Release Date</th>
+            <td><%= moviedata.Released %></td>
+        </tr>
+        <tr>
+            <th>Genre</th>
+            <td><%= moviedata.Genre %></td>
+        </tr>
+        <tr>
+            <th>Cast</th>
+            <td><%= moviedata.Actors %></td>
+        </tr>
+        <tr>
+            <th>Plot</th>
+            <td><%= moviedata.Plot %></td>
+        </tr>
+        <tr>
+            <th>IMDB Rating</th>
+            <td><%= moviedata.Ratings[0].Value %></td>
+        </tr>
+    </table>
+</body>

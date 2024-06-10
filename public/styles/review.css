@@ -1,0 +1,112 @@
+body{
+    height: 100%;
+    text-align: center;
+    margin: 0;
+    background-color: #151515;
+    color: #690000;
+}
+
+.navbar{
+    background-color: rgb(255, 0, 0);
+    margin-bottom: 5rem;
+    flex-wrap: wrap;
+    height: 3.8rem;
+}
+.nav-link{
+    color: white;
+}
+.nav-item{
+    margin-top: -1rem;
+    margin-left: 1rem;
+}
+.search{
+    margin-left: 2rem;
+    background-color: rgb(255, 255, 255);
+    align-self: center;
+}
+
+.searchbtn{
+    border:1px white solid;
+    background-color: #f31212;
+}
+.searchbtn:hover{
+    border:1px rgb(206, 0, 0) solid;
+    background-color: #f22828;
+}
+
+.explore{
+    justify-self: center;
+    align-self: center;
+    border: none;
+    background-color: rgb(255, 0, 0);
+}
+.explore:hover{
+    background-color: #f22828;
+    border: none;
+}
+.explore:focus{
+    background: #ff0c0c;
+}
+
+.reviewstatus{
+    margin-top: 5rem;
+    color: white;
+}
+.username{
+    color: #ffeeee;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.reviewform{
+    padding: 3rem 1.5rem;
+    margin: auto;
+    width: 40%;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    box-sizing: content-box;
+    border: 2px solid rgb(187, 187, 187);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: monospace;
+}
+.filmname{
+    box-sizing: border-box;
+}
+.filmlabel, .reviewlabel, .ratelabel{
+    font-size: 1.2rem;
+    color: #690000;
+} 
+.reviewarea{
+    font-size: 1rem;
+    height: 5rem;
+    line-height: 1.5rem;
+}
+.reviewbtn{
+    justify-self: center;
+    grid-column: span 2;
+    color: white;
+    
+    border: 1px solid #9e9d9d;
+    background-color: #C73659;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 1.3rem;    
+} 
+.stars{
+    background-color: #dddada;
+}
+
+.star{
+    font-size: 300%;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}
+.clicked{
+    color: rgb(246, 173, 38);
+}
