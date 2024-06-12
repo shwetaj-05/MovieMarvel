@@ -1,0 +1,2 @@
+movieBlogPosts;
+console.log(postData);

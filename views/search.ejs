@@ -1,6 +1,7 @@
 <%- include('partials/mainnav.ejs') %>
 <link rel="stylesheet" href="styles/serdata.css">
 <body>
+    <% if(locals.moviedata.Title){ %>
     <img src="<%= moviedata.Poster %>" alt="<%= moviedata.Title %> poster" class="poster">
     <table>
         <tr>
@@ -27,5 +28,9 @@
             <th>IMDB Rating</th>
             <td><%= moviedata.Ratings[0].Value %></td>
         </tr>
+
     </table>
+    <% }else{ %>
+        <h1>Movie not found</h1>
+    <% } %>
 </body>
