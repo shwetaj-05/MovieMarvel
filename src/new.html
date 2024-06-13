@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="new.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="nav-bar"></div>
+
+    <form id="newPostForm" method="post" action="/post">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="content" placeholder="Content" required rows="10"></textarea>
+        <input type="text" name="author" placeholder="Author" required>
+        <button class="full-width" type="submit">Submit</button>
+    </form>
+    
+<script src="js/new.js"></script>
+</body>
+</html>

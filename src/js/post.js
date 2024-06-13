@@ -4,10 +4,13 @@ postData.style.display="none";
 
 postData = JSON.parse(postData.innerHTML)
 
+$(function(){
+    $("#nav-bar").load('nav.html');
+});
+
 const ul = document.getElementById('postsList');
 
 postData.forEach(post => {
-    console.log(post.postTitle,'\n')
 
     const li = document.createElement('li'); 
     const title = document.createElement('h2');
@@ -16,6 +19,9 @@ postData.forEach(post => {
     const author = document.createElement('small');
     const edit = document.createElement('a');
     const remove = document.createElement('a');
+
+    edit.id='edit';
+    remove.id='remove';
 
     title.textContent=post.postTitle;
     date.textContent=post.postDate;
@@ -26,7 +32,5 @@ postData.forEach(post => {
 
     li.append(title, date, content, author, edit, remove);
     ul.append(li);
-
-    console.log(ul);
 
 });

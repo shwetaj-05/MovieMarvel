@@ -16,8 +16,8 @@ app.post('/new', (req, res) => {
   const data = {
     postTitle: req.body.title,
     postDate: req.body.date,
-    author: req.body.blogger,
-    postContent: req.body.blog
+    author: req.body.author,
+    postContent: req.body.content
   }
   movieBlogPosts.push(data);
   res.json(movieBlogPosts);

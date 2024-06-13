@@ -1,0 +1,22 @@
+#newPostForm{
+    padding: 2rem;
+    margin: auto;
+    width: 50%;
+    
+    display: grid;
+    grid-template-columns: 0.7fr;
+    grid-template-rows: repeat(4, 0.2fr);
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    box-sizing: content-box;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: monospace;
+}
+
+button.full-width {
+    display: block;
+    text-align: center;
+    width: 100%;
+}

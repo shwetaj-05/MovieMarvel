@@ -34,20 +34,6 @@ body{
     background-color: #f22828;
 }
 
-.explore{
-    justify-self: center;
-    align-self: center;
-    border: none;
-    background-color: rgb(255, 0, 0);
-}
-.explore:hover{
-    background-color: #f22828;
-    border: none;
-}
-.explore:focus{
-    background: #ff0c0c;
-}
-
 .reviewstatus{
     margin-top: 5rem;
     color: white;

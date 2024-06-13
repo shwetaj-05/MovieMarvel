@@ -2,38 +2,44 @@
 
 <link rel="stylesheet" href="styles/review.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<% if(locals.film && locals.review){ %>
-    <h3 class="reviewstatus">Review is saved successfully!!</h3>
-    <% }else{ %>
 
-        <form action="/submit" method="post" class="reviewform">
-            <label class="filmlabel">Film Name: </label>
-            <input type="text" name="filmname" class="filname" required>
-            <label class="reviewlabel">Add Review: </label>
-            <textarea name="review" class="reviewarea" required></textarea>
-            <label class="ratelabel">Rating: </label>
-            <div class="stars">
-                <span class="1 star">&starf;</span>
-                <span class="2 star">&starf;</span>
-                <span class="3 star">&starf;</span>
-                <span class="4 star">&starf;</span>
-                <span class="5 star">&starf;</span>
-            </div>
-            <input type="submit" name="" value="add review" class="reviewbtn">
-        </form>
-        <script>
-            const stars = document.getElementsByClassName('star');
-            for(const star of stars){
-                star.addEventListener('click', (event)=>{
-                    var rate = star.classList[0];
-                    for(var i = 0; i < rate; i++){
-                        stars[i].classList.add('clicked');
-                    }   
-                    for(;rate-1 <= stars.length; rate++ ){
-                        stars[rate].classList.remove('clicked');
-                    } 
-                });
-            }
-                
-        </script>
+<body>  
+        
+    <% if(locals.film && locals.review){ %>
+        <h3 class="reviewstatus">Review is saved successfully!!</h3>
+        <% }else{ %>
+            
+            <form action="/submit" method="post" class="reviewform">
+                <label class="filmlabel">Film Name: </label>
+                <input type="text" name="filmname" class="filname" required>
+                <label class="reviewlabel">Add Review: </label>
+                <textarea name="review" class="reviewarea" required></textarea>
+                <label class="ratelabel">Rating: </label>
+                <div class="stars">
+                    <span class="1 star">&starf;</span>
+                    <span class="2 star">&starf;</span>
+            <span class="3 star">&starf;</span>
+            <span class="4 star">&starf;</span>
+            <span class="5 star">&starf;</span>
+        </div>
+        <input type="submit" name="" value="add review" class="reviewbtn">
+    </form>
+        
+</body>
+    <script>
+    
+    const stars = document.getElementsByClassName('star');
+    for(const star of stars){
+        star.addEventListener('click', (event)=>{
+            var rate = star.classList[0];
+            for(var i = 0; i < rate; i++){
+                stars[i].classList.add('clicked');
+            }   
+            for(;rate-1 <= stars.length; rate++ ){
+                stars[rate].classList.remove('clicked');
+            } 
+        });
+    }
+    
+    </script>
 <% } %>

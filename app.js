@@ -72,6 +72,16 @@ app.get('/post', async(req, res) => {
     }
 });
 
+app.post('/post', async(req, res) => {
+    const result = await axios.get(`${post_api}/new`);
+    console.log(result.data)
+})
+
+app.get('/new', (req, res) => {
+    res.sendFile(__dirname+'/src/new.html');
+});
+
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
