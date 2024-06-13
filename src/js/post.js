@@ -1,2 +1,32 @@
-movieBlogPosts;
-console.log(postData);
+var postData = document.getElementById('demo');
+
+postData.style.display="none";
+
+postData = JSON.parse(postData.innerHTML)
+
+const ul = document.getElementById('postsList');
+
+postData.forEach(post => {
+    console.log(post.postTitle,'\n')
+
+    const li = document.createElement('li'); 
+    const title = document.createElement('h2');
+    const date = document.createElement('small');
+    const content = document.createElement('p');
+    const author = document.createElement('small');
+    const edit = document.createElement('a');
+    const remove = document.createElement('a');
+
+    title.textContent=post.postTitle;
+    date.textContent=post.postDate;
+    content.textContent=post.postContent;
+    author.textContent=post.author;
+    edit.textContent="edit";
+    remove.textContent="delete";
+
+    li.append(title, date, content, author, edit, remove);
+    ul.append(li);
+
+    console.log(ul);
+
+});

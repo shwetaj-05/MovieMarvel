@@ -12,6 +12,25 @@ app.get('/post', (req, res) => {
     res.json(movieBlogPosts);
 })
 
+app.post('/new', (req, res) => {
+  const data = {
+    postTitle: req.body.title,
+    postDate: req.body.date,
+    author: req.body.blogger,
+    postContent: req.body.blog
+  }
+  movieBlogPosts.push(data);
+  res.json(movieBlogPosts);
+});
+
+app.patch('/update', (req, res) => {
+  
+});
+
+app.delete('/delete', (req, res) => {
+  
+})
+
 app.listen(port, (req, res) =>{
     console.log(`Server running on port ${port}`)
 });

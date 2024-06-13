@@ -64,11 +64,11 @@ app.get('/post', async(req, res) => {
     try{
         const result = await axios.get(`${post_api}/post`);
         let htmlContent = fs.readFileSync(__dirname + '/src/post.html', 'utf8');
-        movieBlogPosts = result.data; 
-        htmlContent = htmlContent.replace('movieBlogPosts', `var movieBlogPosts=${JSON.stringify(movieBlogPosts)}`);
-        // res.send(htmlContent);
+        const  movieBlogPosts = result.data; 
+        htmlContent = htmlContent.replace('movieBlogPosts', JSON.stringify(movieBlogPosts));
+        res.send(htmlContent);
     }catch{
-        res.status(500).json({message: "Error fetching posts"})
+        res.status(500).json({message: "Error fetching posts"});
     }
 });
 
