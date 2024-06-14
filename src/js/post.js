@@ -9,7 +9,7 @@ $(function(){
 });
 
 const ul = document.getElementById('postsList');
-
+var id=0;
 postData.forEach(post => {
 
     const li = document.createElement('li'); 
@@ -22,6 +22,8 @@ postData.forEach(post => {
 
     edit.id='edit';
     remove.id='remove';
+    edit.href=`blogs/edit/${id}`;
+    remove.href=`blogs/delete/${id}`;
 
     title.textContent=post.postTitle;
     date.textContent=post.postDate;
@@ -33,4 +35,5 @@ postData.forEach(post => {
     li.append(title, date, content, author, edit, remove);
     ul.append(li);
 
+    id=id+1
 });

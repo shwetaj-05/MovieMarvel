@@ -8,14 +8,21 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.get('/post', (req, res) => {
+//get all blogs
+app.get('/posts', (req, res) => {
     res.json(movieBlogPosts);
 })
 
+//add new blog
 app.post('/new', (req, res) => {
+  const date = new Date();
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];  
   const data = {
     postTitle: req.body.title,
-    postDate: req.body.date,
+    postDate: `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`,
     author: req.body.author,
     postContent: req.body.content
   }
@@ -23,12 +30,17 @@ app.post('/new', (req, res) => {
   res.json(movieBlogPosts);
 });
 
-app.patch('/update', (req, res) => {
-  
+//delete a blog
+app.delete('/delete/:id', (req, res) => {
+  const indx = req.params.id;
+  movieBlogPosts.splice(indx, 1);
+  res.json(movieBlogPosts);
 });
 
-app.delete('/delete', (req, res) => {
-  
+//get blog by id / edit blog
+app.get('/posts/:id', (req, res) => {
+  const indx = req.params.id;
+  res.json(movieBlogPosts[indx]);
 })
 
 app.listen(port, (req, res) =>{

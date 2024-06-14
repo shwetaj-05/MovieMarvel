@@ -60,9 +60,10 @@ app.post('/submit', (req, res) => {
     }
 });
 
-app.get('/post', async(req, res) => {
+//get all blogs
+app.get('/blogs', async(req, res) => {
     try{
-        const result = await axios.get(`${post_api}/post`);
+        const result = await axios.get(`${post_api}/posts`);
         let htmlContent = fs.readFileSync(__dirname + '/src/post.html', 'utf8');
         const  movieBlogPosts = result.data; 
         htmlContent = htmlContent.replace('movieBlogPosts', JSON.stringify(movieBlogPosts));
@@ -72,15 +73,47 @@ app.get('/post', async(req, res) => {
     }
 });
 
-app.post('/post', async(req, res) => {
-    const result = await axios.get(`${post_api}/new`);
-    console.log(result.data)
-})
-
+//get new blog page
 app.get('/new', (req, res) => {
     res.sendFile(__dirname+'/src/new.html');
 });
 
+//post a new blog
+app.post('/blogs', async(req, res) => {
+    try {
+        const result = await axios.post(`${post_api}/new`, req.body);
+        let htmlContent = fs.readFileSync(__dirname + '/src/post.html', 'utf8');
+        const  movieBlogPosts = result.data; 
+        htmlContent = htmlContent.replace('movieBlogPosts', JSON.stringify(movieBlogPosts));
+        res.send(htmlContent);
+    } catch (error) {
+        res.status(500).json({ message: "Error adding post" });
+    }
+});
+
+//delete a blog
+app.get('/blogs/delete/:id', async(req, res) => {
+    const id=req.params.id;
+    try {
+        await axios.delete(`${post_api}/delete/${id}`);
+        res.redirect('/blogs');
+    } catch (error) {
+        res.status(500).json({ message: "Error deleting post" });
+    }
+});
+
+//edit a blog
+app.get('/blogs/edit/:id', async(req, res) => {
+    const id = req.params.id;
+    try {
+        const result = await axios.get(`${post_api}/posts/${id}`);
+        var htmlContent = fs.readFileSync(__dirname+'/src/edit.html', 'utf-8');
+        htmlContent = htmlContent.replace('editData', JSON.stringify(result.data));
+        res.send(htmlContent);
+    } catch (error) {
+        res.status(500).json({ message: "Error editing post" });
+    }
+});
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

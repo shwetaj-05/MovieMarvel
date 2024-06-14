@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body{
+            height: 100%;
+            margin: 0;
+            background-color: #151515;
+        }
+
+        #newPostForm{
+            padding: 2rem;
+            margin: auto;
+            width: 50%;
+            
+            display: grid;
+            grid-template-columns: 0.7fr;
+            grid-template-rows: repeat(4, 0.2fr);
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+
+            box-sizing: content-box;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: monospace;
+            margin-top: 10rem;
+        }
+
+        button.full-width {
+            display: block;
+            text-align: center;
+            width: 50%;
+            justify-self: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo">editData</p>
+    
+    <form id="newPostForm" method="post" action="/blogs">
+        <input type="text" name="title" placeholder="Title">
+        <textarea name="content" placeholder="Content" rows="10"></textarea>
+        <input type="text" name="author" placeholder="Author">
+        <button class="full-width" type="submit">Update</button>
+    </form>
+
+<script src="js/edit.js"></script>
+</body>
+</html>
