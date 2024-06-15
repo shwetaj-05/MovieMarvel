@@ -73,6 +73,19 @@ app.get('/blogs', async(req, res) => {
     }
 });
 
+//get blog by indx
+app.get('/blogs/edit/:id', async(req, res) => {
+    const indx = req.params.id;
+    try {
+        const result = await axios.get(`${post_api}/posts/${indx}`);
+        let htmlContent = fs.readFileSync(__dirname + '/src/edit.html', 'utf8');
+        htmlContent = htmlContent.replace('editData', JSON.stringify(result.data));
+        res.send(htmlContent);
+    } catch (error) {
+        res.status(500).json({message: "Error fetching post"});
+    }
+})
+
 //get new blog page
 app.get('/new', (req, res) => {
     res.sendFile(__dirname+'/src/new.html');
@@ -80,6 +93,7 @@ app.get('/new', (req, res) => {
 
 //post a new blog
 app.post('/blogs', async(req, res) => {
+    console.log(req.body);
     try {
         const result = await axios.post(`${post_api}/new`, req.body);
         let htmlContent = fs.readFileSync(__dirname + '/src/post.html', 'utf8');
@@ -103,13 +117,10 @@ app.get('/blogs/delete/:id', async(req, res) => {
 });
 
 //edit a blog
-app.get('/blogs/edit/:id', async(req, res) => {
-    const id = req.params.id;
+app.post('/blogs/edit', async(req, res) => {
     try {
-        const result = await axios.get(`${post_api}/posts/${id}`);
-        var htmlContent = fs.readFileSync(__dirname+'/src/edit.html', 'utf-8');
-        htmlContent = htmlContent.replace('editData', JSON.stringify(result.data));
-        res.send(htmlContent);
+        const result = await axios.patch(`${post_api}/post`, req.body);
+        res.redirect('/blogs');
     } catch (error) {
         res.status(500).json({ message: "Error editing post" });
     }
@@ -117,4 +128,4 @@ app.get('/blogs/edit/:id', async(req, res) => {
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
-})
+});

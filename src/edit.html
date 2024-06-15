@@ -39,15 +39,27 @@
     </style>
 </head>
 <body>
-    <p id="demo">editData</p>
     
-    <form id="newPostForm" method="post" action="/blogs">
-        <input type="text" name="title" placeholder="Title">
-        <textarea name="content" placeholder="Content" rows="10"></textarea>
-        <input type="text" name="author" placeholder="Author">
+    <form id="newPostForm" method="post" action="/blogs/edit">
+        <input id="title" type="text" name="title" placeholder="Title">
+        <textarea id="content" name="content" placeholder="Content" rows="10"></textarea>
+        <input id="author" type="text" name="author" placeholder="Author">
         <button class="full-width" type="submit">Update</button>
     </form>
+    
+    <p id="demo" style="display: none;">editData</p>
+<script>
+    var editData = document.getElementById("demo");
+    editData = JSON.parse(editData.innerHTML);
 
-<script src="js/edit.js"></script>
+    var title = document.getElementById('title');
+    var content = document.getElementById('content');
+    var author = document.getElementById('author');
+    
+    title.value=editData.postTitle;
+    content.value = editData.postContent;
+    author.value = editData.author;
+
+</script>
 </body>
 </html>

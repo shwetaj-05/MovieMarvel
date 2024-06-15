@@ -8,18 +8,30 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+const date = new Date();
+const monthNames = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];  
+
 //get all blogs
 app.get('/posts', (req, res) => {
     res.json(movieBlogPosts);
 })
 
+//get blog by id
+app.get('/posts/:id', (req, res) => {
+  const indx = req.params.id;
+  if( indx >= 0 && indx < movieBlogPosts.length){
+    res.json(movieBlogPosts[indx]);
+  }
+  else{
+    res.status(404).send('Post not found');
+  }
+});
+
 //add new blog
 app.post('/new', (req, res) => {
-  const date = new Date();
-  const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ];  
   const data = {
     postTitle: req.body.title,
     postDate: `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`,
@@ -37,11 +49,18 @@ app.delete('/delete/:id', (req, res) => {
   res.json(movieBlogPosts);
 });
 
-//get blog by id / edit blog
-app.get('/posts/:id', (req, res) => {
-  const indx = req.params.id;
-  res.json(movieBlogPosts[indx]);
-})
+// edit blog
+app.patch('/post', (req, res) => {
+  console.log(req.body)
+  const data = {
+    postTitle: req.body.title,
+    postDate: `Updated on ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`,
+    author: req.body.author,
+    postContent: req.body.content
+  }
+  movieBlogPosts.push(data);
+  res.json(movieBlogPosts);
+});
 
 app.listen(port, (req, res) =>{
     console.log(`Server running on port ${port}`)

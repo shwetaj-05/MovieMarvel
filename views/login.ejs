@@ -1,66 +1,10 @@
-<style>
-    body{
-    background-color: rgb(0, 0, 0);
-    text-align: center;
-    }
-    .main{
-        margin-top: 5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    form{
-        width: 38%;
-        margin: auto;
-        padding: 5rem 1.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        box-sizing: content-box;
-        
-        border: 5px solid rgb(247, 247, 247);
-        background: radial-gradient(666px at 0.4% 48%, rgb(202, 204, 227) 0%, rgb(89, 89, 99) 97.5%);}
-
-    label{
-        font-size: 1.3rem;
-        font-family: monospace;
-    }
-    input{
-        width: 10rem;
-        box-sizing: border-box;
-        line-height: 1.5rem;
-    }
-    .login{
-        width: 8rem;
-        cursor: pointer;
-        margin-top: 3rem;
-        background-color: #fecc4c;
-        line-height: 2rem;
-        color: rgb(0, 0, 0);
-        font-size: 1rem;
-    }
-    .login:hover{
-        background-color: yellow;
-    }
-    details{
-        margin-top: 1rem;
-        color: white;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-</style>
-
+<link rel="stylesheet" href="styles/login.css">
 <div class="main">
     <form action="/Home" method="post">
         <label>User name</label>
-        <input type="text" name="user" >
+        <input type="text" name="user" required>
         <label>Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password" required>
         <input type="submit" value="login" class="login">
     </form>
 </div>
-<details>
-    <summary>Click me</summary>
-    <p>Use dummy username and password</p> 
-</details>

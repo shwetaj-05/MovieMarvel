@@ -41,8 +41,12 @@ body {
   background-color: #27ae60;
 }
 
-.container>ul {
+.container{
   margin-top: 5rem;
+}
+
+.container>ul {
+  margin-top: 3rem;
   list-style-type: none;
   color: #000000;
 }
@@ -51,10 +55,6 @@ body {
   margin-bottom: 5rem;
   padding: 3rem 2rem;
   background-color: #fff;
-}
-
-li:last-child {
-  border-bottom: none;
 }
 
 small {

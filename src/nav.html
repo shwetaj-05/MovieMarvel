@@ -1,14 +1,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
 body{
-    height: 100%;
-    margin: 0;
-    background-color: #151515;
+    background-color: black;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
 .navbar{
     background-color: rgb(255, 0, 0);
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 .nav-link{
     color: white;
@@ -16,12 +16,18 @@ body{
 .nav-item{
     margin-left: 1rem;
 }
+.login{
+    display: flex;
+    background-color: #fe9f21;
+    border: 1px solid rgb(255, 253, 250);
+}
+.login:hover{
+    background-color: #fe922e;
+}
 .search{
     margin-left: 2rem;
     background-color: rgb(255, 255, 255);
-    align-self: center;
 }
-
 .searchbtn{
     border:1px white solid;
     background-color: #f31212;
@@ -30,7 +36,6 @@ body{
     border:1px rgb(206, 0, 0) solid;
     background-color: #f22828;
 }
-
 </style>
     <ul class="nav navbar d-flex justify-content-start">
         <form class="d-flex" method="post" action="/search">
@@ -41,6 +46,9 @@ body{
             <a class="nav-link active" aria-current="page" href="/Home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/review">Add Review</a>
+            <a class="nav-link active" aria-current="page" href="/blogs">Blogs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link login" href="login">Log out</a>
         </li>
     </ul>
