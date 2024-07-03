@@ -4,18 +4,20 @@ import { dirname } from 'path';
 import bodyParser from 'body-parser';
 import fs from 'fs';
 import axios from 'axios';
+import 'dotenv/config';
 
 const app = express();
 const port = 3000;
-const movie_url = "http://www.omdbapi.com/?apikey=81b1a69a&";
-const post_api = "http://localhost:4000"
+const api_key = process.env.API_KEY;
+const movie_url = `http://www.omdbapi.com/?apikey=${api_key}`;
+const post_api = "http://localhost:4000";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('login');
-})
+    res.render('login.ejs');
+});
 
 app.use(express.static('public'));
 app.use(express.static('src'));
@@ -42,7 +44,7 @@ app.post('/search', async (req, res) => {
             moviedata: result.data
         })
     } catch (error) {
-        console.log('Error: ', error);
+        console.log('Error message: ', error);
     }
 });
 

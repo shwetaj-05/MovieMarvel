@@ -17,7 +17,7 @@ const monthNames = [
 //get all blogs
 app.get('/posts', (req, res) => {
     res.json(movieBlogPosts);
-})
+});
 
 //get blog by id
 app.get('/posts/:id', (req, res) => {
@@ -51,7 +51,6 @@ app.delete('/delete/:id', (req, res) => {
 
 // edit blog
 app.patch('/post', (req, res) => {
-  console.log(req.body)
   const data = {
     postTitle: req.body.title,
     postDate: `Updated on ${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`,
